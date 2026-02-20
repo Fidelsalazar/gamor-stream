@@ -1,4 +1,4 @@
-import React, { useState, type ReactNode} from "react";
+import React, { useState, type ReactNode } from "react";
 import styles from "./Home.module.css";
 import { TuneIcon } from "./icons/TuneIcon";
 import { AddIcon } from "./icons/AddIcon";
@@ -7,7 +7,7 @@ import { PartyIcon } from "./icons/PartyIcon";
 import { HeartIcon } from "./icons/HeartIcon";
 import { AddAvatarIcon } from "./icons/AddAvatarIcon";
 import { SvgAvatar } from "../../common/SvgAvatar";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { playersData } from "../../../assets/data/players";
 
 import centralDark from "../../../assets/images/fortnite_PNG95.png";
@@ -26,7 +26,9 @@ export const Home: React.FC<HomeProps> = ({ theme = "dark" }) => {
   const [searchTerm] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("party");
   const [centerGames, setCenterGames] = useState<any[]>([]);
-  const [currentPlayer, setCurrentPlayer] = useState<string>("Fortnite New Season");
+  const [currentPlayer, setCurrentPlayer] = useState<string>(
+    "Fortnite New Season"
+  );
   const navigate = useNavigate();
 
   const currentPlayers =
@@ -44,7 +46,7 @@ export const Home: React.FC<HomeProps> = ({ theme = "dark" }) => {
   };
 
   const handleCreateAccount = () => {
-    navigate('/register');
+    navigate("/register");
   };
 
   return (
@@ -107,9 +109,9 @@ export const Home: React.FC<HomeProps> = ({ theme = "dark" }) => {
             <button className={styles.btnPrimary} onClick={handleCreateAccount}>
               Create account
             </button>
-            <a className={styles.linkSignin} href="/login">
+            <Link to="/login" className={styles.linkSignin}>
               Sign in
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -156,7 +158,7 @@ export const Home: React.FC<HomeProps> = ({ theme = "dark" }) => {
                 >
                   <img
                     className={styles.floatingImg}
-                    src= {avatarLigth2}
+                    src={avatarLigth2}
                     alt="User"
                   />
                 </div>
