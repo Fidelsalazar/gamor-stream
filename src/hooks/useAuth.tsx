@@ -67,7 +67,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     logout,
     isAuthenticated: !!user,
     loading: false,
-    register: function (name: string, email: string, password: string): Promise<void> {
+    register: function (): Promise<void> {
       throw new Error('Function not implemented.');
     }
   };
