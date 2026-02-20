@@ -15,7 +15,6 @@ code {
 
 
 :root {
-  /* Tus variables actuales */
   --primary: #a60df2;
   --secondary: #ff9148;
   --primary-hover: #bd4df7;
@@ -28,8 +27,6 @@ code {
   --border-gray: #e5e7eb;
   --tab-bg: #6b7280;
   --bg-dark-shadow: #161920;
-
-  /* Variables para modo light */
   --bg-light: #f9fafb;
   --bg-button-light: #1f2937;
   --card-light: #ffffff;

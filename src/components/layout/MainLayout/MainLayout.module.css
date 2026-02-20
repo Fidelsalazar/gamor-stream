@@ -1,5 +1,3 @@
-/* /src/components/layout/MainLayout/MainLayout.module.css */
-
 .mainLayout {
   min-height: 100%;
   display: flex;
@@ -59,7 +57,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--text-primary); /* <-- Aquí cambiamos */
+  color: var(--text-primary);
   text-decoration: none;
   margin-left: auto;
   margin-right: auto;
@@ -72,7 +70,7 @@
 }
 
 .navLink {
-  color: var(--text-primary); /* <-- Aquí cambiamos */
+  color: var(--text-primary);
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 25px;
@@ -81,11 +79,11 @@
 
 .navCreateLink {
   background-color: #000;
-  color: white; /* <-- Aquí cambiamos */
+  color: white;
   text-decoration: none;
   padding: 0.5rem 1rem;
   border-radius: 25px;
-  border: 2px solid var(--text-primary); /* <-- Opcional: también cambia el borde */
+  border: 2px solid var(--text-primary);
 }
 
 .navLink:hover {
@@ -95,7 +93,7 @@
 .logoutBtn {
   background: none;
   border: none;
-  color: var(--text-primary); /* <-- Aquí cambiamos */
+  color: var(--text-primary);
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
@@ -107,7 +105,7 @@
 }
 
 .userName {
-  color: var(--text-primary); /* <-- Aquí cambiamos */
+  color: var(--text-primary);
   margin-right: 1rem;
 }
 
@@ -120,7 +118,7 @@
 .themeToggle {
   background: transparent;
   border: none;
-  color: var(--text-primary); /* <-- Aquí cambiamos */
+  color: var(--text-primary);
   cursor: pointer;
   padding: 0.5rem;
   border-radius: 50%;

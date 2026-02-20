@@ -1,13 +1,10 @@
 import React from "react";
-import styles from "../Home.module.css";
 
 interface AddAvatarIconProps {
   className?: string;
 }
 
-export const AddAvatarIcon: React.FC<AddAvatarIconProps> = ({
-  className = "",
-}) => {
+export const AddAvatarIcon: React.FC<AddAvatarIconProps> = ({}) => {
   return (
     <svg viewBox="0 0 24 24" fill="none">
       <g>

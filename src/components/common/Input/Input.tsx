@@ -1,6 +1,6 @@
 import React from 'react';
-import { InputProps } from '../../../types/form';
 import styles from './Input.module.css';
+import type { InputProps } from '../../../types/form';
 
 export const Input: React.FC<InputProps> = ({
   label,

@@ -4,7 +4,7 @@ interface HeartIconProps {
   className?: string;
 }
 
-export const HeartIcon: React.FC<HeartIconProps> = ({ className = "" }) => {
+export const HeartIcon: React.FC<HeartIconProps> = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

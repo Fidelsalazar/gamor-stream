@@ -4,9 +4,7 @@ interface VisibilityIconProps {
   className?: string;
 }
 
-export const VisibilityIcon: React.FC<VisibilityIconProps> = ({
-  className = "",
-}) => {
+export const VisibilityIcon: React.FC<VisibilityIconProps> = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

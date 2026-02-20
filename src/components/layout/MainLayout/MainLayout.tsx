@@ -1,4 +1,4 @@
-import React, { cloneElement, ReactNode, useEffect, useState } from "react";
+import React, { cloneElement,useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import styles from "./MainLayout.module.css";
@@ -10,7 +10,6 @@ interface MainLayoutProps {
 
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const { user, logout, isAuthenticated } = useAuth();
-  const [isDarkMode, setIsDarkMode] = useState(true);
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {

@@ -1,5 +1,3 @@
-// src/components/common/SvgAvatar.tsx
-
 import React, { useEffect, useState } from 'react';
 
 interface SvgAvatarProps {

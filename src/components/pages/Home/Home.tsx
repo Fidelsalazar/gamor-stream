@@ -22,8 +22,8 @@ interface HomeProps {
   theme?: String;
 }
 
-export const Home: React.FC<HomeProps> = ({ children, theme = "dark" }) => {
-  const [searchTerm, setSearchTerm] = useState<string>("");
+export const Home: React.FC<HomeProps> = ({ theme = "dark" }) => {
+  const [searchTerm] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("party");
   const [centerGames, setCenterGames] = useState<any[]>([]);
   const [currentPlayer, setCurrentPlayer] = useState<string>("Fortnite New Season");
