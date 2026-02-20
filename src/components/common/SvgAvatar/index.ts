@@ -1,0 +1,1 @@
+export { SvgAvatar } from './SvgAvatar';

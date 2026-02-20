@@ -1,0 +1,251 @@
+.loginContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+.leftSide {
+  flex: 1;
+  background-color: var(--secondary); 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.logoContainer, .heroTextContainer {
+  position: relative;
+  z-index: 10;
+}
+
+.logoIconBox {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+.logoIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: white;
+}
+
+.logoText {
+  font-size: 2rem;
+  font-weight: 800;
+  color: white;
+  letter-spacing: -0.02em;
+}
+
+.heroTextContainer {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-bottom: auto; 
+}
+
+.heroTitle {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 0.5rem;
+  line-height: 1.1;
+}
+
+.heroSubtitle {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.imageContainer {
+  position: absolute;
+  inset: 0; 
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.heroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mask-image: linear-gradient(to top, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, black 80%, transparent 100%);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), transparent);
+  z-index: 1; 
+  pointer-events: none;
+}
+
+
+.rightSide {
+  flex: 1; 
+  background-color: var(--card-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+.formHeader {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input {
+  padding: 0.875rem 1rem;
+  background-color: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(166, 13, 242, 0.15);
+}
+
+.forgotPassword {
+  text-align: right;
+}
+
+.forgotPassword a {
+  font-size: 0.875rem;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.forgotPassword a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+.footer {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.footer a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+
+.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .loginContainer {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .leftSide {
+    height: 350px; 
+    flex: none;
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .rightSide {
+    flex: none;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .imageContainer {
+    height: 100%;
+    opacity: 0.3; 
+  }
+  
+  .heroTitle {
+    font-size: 2rem;
+  }
+}

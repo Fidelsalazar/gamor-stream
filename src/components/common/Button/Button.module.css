@@ -1,0 +1,208 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+  width: auto;
+  min-height: 2.5rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-align: center;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Variantes */
+.primary {
+  background-color: #667eea;
+  color: white;
+}
+
+.primary:hover:not(:disabled) {
+  background-color: #5a6fd8;
+  transform: translateY(-1px);
+}
+
+.secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.secondary:hover:not(:disabled) {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+.outline {
+  background-color: transparent;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.outline:hover:not(:disabled) {
+  background-color: #667eea;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Tamaños */
+.small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  min-height: 2rem;
+}
+
+.medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  min-height: 2.5rem;
+}
+
+.large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  min-height: 3rem;
+}
+
+/* Ancho completo */
+.fullWidth {
+  width: 100%;
+  min-width: auto;
+}
+
+/* Estado de carga */
+.loading {
+  pointer-events: none;
+}
+
+.spinner {
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid transparent;
+  border-top: 2px solid currentColor;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Estados deshabilitados */
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* Focus visible para accesibilidad */
+.button:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Responsividad mejorada */
+@media (max-width: 768px) {
+  .button {
+    min-height: 2.25rem;
+  }
+  
+  .small {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    min-height: 1.75rem;
+  }
+  
+  .medium {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.95rem;
+    min-height: 2.25rem;
+  }
+  
+  .large {
+    padding: 0.85rem 1.75rem;
+    font-size: 1rem;
+    min-height: 2.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .button {
+    min-height: 2rem;
+  }
+  
+  .small {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    min-height: 1.75rem;
+  }
+  
+  .medium {
+    padding: 0.55rem 1rem;
+    font-size: 0.9rem;
+    min-height: 2rem;
+  }
+  
+  .large {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    min-height: 2.5rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .button {
+    min-height: 1.8rem;
+  }
+  
+  .medium {
+    padding: 0.45rem 0.8rem;
+    font-size: 0.85rem;
+    min-height: 1.8rem;
+  }
+}
+
+/* Ajustes para dispositivos táctiles */
+@media (hover: none) and (pointer: coarse) {
+  .button {
+    min-height: 3rem; /* Mayor área táctil */
+    min-width: 44px; /* Tamaño mínimo recomendado para accesibilidad */
+  }
+  
+  .small {
+    min-height: 2.5rem;
+  }
+  
+  .medium {
+    min-height: 3rem;
+  }
+  
+  .large {
+    min-height: 3.5rem;
+  }
+}
+
+/* Ajustes para usuarios que prefieren reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+  
+  .spinner {
+    animation: none;
+  }
+  
+  .primary:hover:not(:disabled),
+  .secondary:hover:not(:disabled),
+  .outline:hover:not(:disabled) {
+    transform: none;
+  }
+}

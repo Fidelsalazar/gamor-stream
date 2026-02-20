@@ -1,0 +1,175 @@
+/* /src/components/layout/MainLayout/MainLayout.module.css */
+
+.mainLayout {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  background-color: var(--bg-main);
+  padding: 1.5rem 2rem;
+}
+
+.navbar {
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100%;
+  padding-left: 5rem;
+  width: 93%;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 2rem; 
+}
+
+.homeLink {
+  position: relative;       
+  display: inline-block;   
+  z-index: 10;               
+  text-decoration: none;     
+  color: var(--secondary);           
+}
+
+.links {
+  position: relative;       
+  display: inline-block;   
+  z-index: 10;               
+  text-decoration: none;     
+  color: var(--text-secondary);           
+}
+
+.svgEllipse {
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg); 
+  width: 200%;
+  height: 200%;
+  color: var(--secondary);           
+  z-index: -1;              
+  pointer-events: none;    
+  fill: none;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-primary); /* <-- Aquí cambiamos */
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navLink {
+  color: var(--text-primary); /* <-- Aquí cambiamos */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  transition: background-color 0.2s;
+}
+
+.navCreateLink {
+  background-color: #000;
+  color: white; /* <-- Aquí cambiamos */
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  border: 2px solid var(--text-primary); /* <-- Opcional: también cambia el borde */
+}
+
+.navLink:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.logoutBtn {
+  background: none;
+  border: none;
+  color: var(--text-primary); /* <-- Aquí cambiamos */
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.logoutBtn:hover {
+  background-color: rgba(255,255,255,0.1);
+}
+
+.userName {
+  color: var(--text-primary); /* <-- Aquí cambiamos */
+  margin-right: 1rem;
+}
+
+.mainContent {
+  padding-top: 0.5rem; 
+  margin-top: 0.5rem;
+  background-color: var(--bg-main);
+}
+
+.themeToggle {
+  background: transparent;
+  border: none;
+  color: var(--text-primary); /* <-- Aquí cambiamos */
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  margin-left: 1rem; 
+  font-size: 1.2rem;
+}
+
+.themeToggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--primary); 
+  transform: rotate(15deg);
+}
+
+.themeToggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .navLinks {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .mainContent {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0.5rem 1rem;
+  }
+  
+  .logo {
+    font-size: 1.25rem;
+  }
+  
+  .navLink, .logoutBtn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}

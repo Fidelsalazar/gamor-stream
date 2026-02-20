@@ -1,0 +1,231 @@
+.registerContainer {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background-color: var(--bg-main);
+  overflow: hidden;
+}
+
+.leftSide {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3rem;
+  position: relative;
+  z-index: 10;
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 3rem; 
+}
+
+.logoIconBox {
+  width: 3rem;
+  height: 3rem;
+  background: rgba(166, 13, 242, 0.2); 
+  border: 1px solid rgba(166, 13, 242, 0.3);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.logoIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: var(--primary);
+}
+
+.logoText {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 380px;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.rightSide {
+  flex: 1;
+  position: relative;
+  background-color: var(--bg-dark);
+}
+
+.bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  background-color: var(--surface-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(166, 13, 242, 0.15);
+}
+
+
+.btn {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: var(--primary);
+  color: var(--text-white);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.5rem;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+}
+
+/* Footer */
+.footer {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.footer a {
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 0.25rem;
+}
+
+.error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.checkboxGroup {
+  margin-top: -0.5rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkboxCustom {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.checkbox:checked + .checkboxCustom {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.checkIcon {
+  width: 0.75rem;
+  height: 0.75rem;
+  color: var(--bg-main);
+}
+
+.checkboxText {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .registerContainer {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .rightSide {
+    height: 300px;
+    flex: none;
+    width: 100%;
+  }
+
+  .leftSide {
+    flex: none;
+    width: 100%;
+    padding: 2rem 1.5rem;
+  }
+}
