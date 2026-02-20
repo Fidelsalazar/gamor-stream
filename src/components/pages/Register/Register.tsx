@@ -95,9 +95,7 @@ export const Register: React.FC = () => {
   return (
     <div className={styles.registerContainer}>
       
-      {/* --- LADO IZQUIERDO: LOGO + FORMULARIO --- */}
       <div className={styles.leftSide}>
-        {/* LOGO */}
         <div className={styles.logoContainer}>
           <h1 className={styles.logoText}>GAMOR</h1>
         </div>
@@ -218,7 +216,7 @@ export const Register: React.FC = () => {
       </div>
       <div className={styles.rightSide}>
         <img
-          src="https://www.exitlag.com/blog/wp-content/uploads/2024/09/fortnite-login-how-to-access-your-account-3.webp"
+          src="https://imgs.search.brave.com/_9oW3LyOG8lO-KgtVknAjB4oiHb4mhbkdvcbsMPTJC4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/d2FsbHBhcGVyc2Fm/YXJpLmNvbS85OS8x/My80RDF5WVA4Lndl/YnA"
           alt="Gaming Background"
           className={styles.bgImage}
         />
