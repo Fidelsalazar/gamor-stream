@@ -28,7 +28,7 @@ code {
   --tab-bg: #6b7280;
   --bg-dark-shadow: #161920;
   --bg-light: #f9fafb;
-  --bg-button-light: #1f2937;
+  --bg-button-light: #374151;
   --card-light: #ffffff;
   --surface-light: #f3f4f6;
   --text-dark: #1f2937; 
@@ -54,10 +54,12 @@ code {
 :root:not([data-theme="dark"]) {
   --text-primary: var(--text-dark); 
   --text-secondary: var(--text-light);
+  --text-secondary-btn: var(--card-light);
   --text-selector: var(--text-gray);
   --bg-main: var(--bg-light);
   --card-bg: var(--card-light);
   --surface-bg: var(--surface-light);
+  --surface-search-bg: var(--surface-dark);
   --border-color: var(--border-light);
   --bg-button: var(--bg-button-dark);
   --bg-card: var(--primary);
@@ -68,10 +70,12 @@ code {
 [data-theme="dark"] {
   --text-primary: var(--text-white);
   --text-secondary: var(--text-gray);
+  --text-secondary-btn: var(--text-dark);
   --text-selector: var(--text-light);
   --bg-main: var(--bg-dark);
   --card-bg: var(--card-dark);
   --surface-bg: var(--surface-dark);
+  --surface-search-bg: var(--surface-light);
   --border-color: var(--border-gray);
   --bg-button: var(--bg-button-light);
   --bg-card: var(--secondary);

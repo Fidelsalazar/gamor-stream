@@ -32,14 +32,14 @@
 }
 
 .colLeft {
-  background-color: var(--surface-bg);
+  background-color:  var(--surface-bg);
   flex: 1;
   padding: 2.5rem 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: relative;
-  z-index: 10;
+  z-index: 100;
 }
 
 @media (max-width: 1023px) {
@@ -342,7 +342,8 @@
 
 @media (prefers-color-scheme: dark) {
   .colLeft {
-    background-color: transparent;
+    background-color: var(--card-bg);
+    border-left: 1px solid var(--surface-dark);
   }
   .colRight {
     background-color: var(--card-bg);
@@ -635,8 +636,8 @@
 
 .searchBtn {
   width: 100%;
-  background-color: var(--card-dark);
-  color: var(--tab-bg-light);
+  background-color: var(--surface-search-bg);
+  color: var(--text-secondary-btn);
   padding: 1.5rem;
   border-radius: 0.75rem;
   font-weight: bold;
