@@ -1,10 +1,7 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { AuthProvider } from './hooks/useAuth';
-import { Login } from './components/pages/Login';
-import { Register } from './components/pages/Register';
-import { MainLayout } from './components/layout/MainLayout';
-import { Home } from './components/pages/Home';
+import { AppRoutes } from './components/routes';
 
 const AppMetaTags: React.FC = () => {
   return (
@@ -24,16 +21,7 @@ function App() {
       <AppMetaTags />
       <AuthProvider>
         <Router>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/" element={
-              <MainLayout>
-                <Home/>
-              </MainLayout>
-            } />
-            <Route path="*" element={<Navigate to="/" />} />
-          </Routes>
+          <AppRoutes />
         </Router>
       </AuthProvider>
     </>

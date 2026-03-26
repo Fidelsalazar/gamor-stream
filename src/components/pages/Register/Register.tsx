@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
 import styles from "./Register.module.css";
 import type { RegisterData } from "../../../types/auth";
@@ -82,7 +82,7 @@ export const Register: React.FC = () => {
 
     try {
       await register(formData.name, formData.email, formData.password);
-      navigate("/dashboard", { replace: true });
+      navigate("/", { replace: true });
     } catch (err) {
       const errorMessage =
         err instanceof Error ? err.message : "Error de registro";
@@ -210,7 +210,7 @@ export const Register: React.FC = () => {
           </form>
 
           <div className={styles.footer}>
-            Already have an account? <a href="/login">Sign In</a>
+            Already have an account? <Link to="/login">Sign In</Link>
           </div>
         </div>
       </div>

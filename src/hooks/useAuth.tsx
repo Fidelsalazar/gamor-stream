@@ -56,6 +56,23 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const register = async (name: string, email: string, password: string): Promise<void> => {
+    if (name && email && password) {
+      await new Promise(resolve => setTimeout(resolve, 500));
+
+      const userData: User = {
+        id: Date.now(),
+        name: name,
+        email: email
+      };
+
+      setUser(userData);
+      localStorage.setItem('user', JSON.stringify(userData));
+    } else {
+      throw new Error('Datos de registro inválidos');
+    }
+  };
+
   const logout = (): void => {
     setUser(null);
     localStorage.removeItem('user');
@@ -64,12 +81,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const value: AuthContextType = {
     user,
     login,
+    register,
     logout,
     isAuthenticated: !!user,
     loading: false,
-    register: function (): Promise<void> {
-      throw new Error('Function not implemented.');
-    }
   };
 
   if (loading) {
