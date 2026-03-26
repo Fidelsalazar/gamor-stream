@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Home.module.css";
+import styles from "../../components/pages/Home/Home.module.css";
 
 interface TuneIconProps {
   className?: string;
