@@ -218,34 +218,3 @@
   font-size: 0.875rem;
   border: 1px solid rgba(239, 68, 68, 0.2);
 }
-
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
-  .loginContainer {
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .leftSide {
-    height: 350px; 
-    flex: none;
-    width: 100%;
-    padding: 1.5rem;
-  }
-
-  .rightSide {
-    flex: none;
-    width: 100%;
-    padding: 2rem 1.5rem;
-  }
-
-  .imageContainer {
-    height: 100%;
-    opacity: 0.3; 
-  }
-  
-  .heroTitle {
-    font-size: 2rem;
-  }
-}

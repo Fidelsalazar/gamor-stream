@@ -207,24 +207,3 @@
   font-size: 0.875rem;
   color: var(--text-secondary);
 }
-
-/* --- RESPONSIVE --- */
-@media (max-width: 900px) {
-  .registerContainer {
-    flex-direction: column;
-    height: auto;
-    min-height: 100vh;
-  }
-
-  .rightSide {
-    height: 300px;
-    flex: none;
-    width: 100%;
-  }
-
-  .leftSide {
-    flex: none;
-    width: 100%;
-    padding: 2rem 1.5rem;
-  }
-}

@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
+import { useResponsive, AuthPageConfig } from "../../../hooks/useResponsive";
 import styles from "./Login.module.css";
 import type { LoginCredentials } from "../../../types/auth";
 
@@ -14,6 +15,8 @@ export const Login: React.FC = () => {
 
   const navigate = useNavigate();
   const { login } = useAuth(); 
+  const { size } = useResponsive();
+  const authConfig = AuthPageConfig[size]; 
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,8 +69,17 @@ export const Login: React.FC = () => {
   };
 
   return (
-    <div className={styles.loginContainer}>
-      <div className={styles.leftSide}>
+    <div 
+      className={styles.loginContainer}
+      style={{ 
+        flexDirection: authConfig.flexDirection,
+        height: authConfig.containerHeight
+      }}
+    >
+      <div 
+        className={styles.leftSide}
+        style={{ width: size === 'mobile' || size === 'smallMobile' ? '100%' : authConfig.leftSideWidth }}
+      >
 
         <div className={styles.heroTextContainer}>
           <h2 className={styles.heroTitle}>Welcome Back!</h2>
@@ -84,7 +96,12 @@ export const Login: React.FC = () => {
         </div>
       </div>
 
-      <div className={styles.rightSide}>
+      <div 
+        className={styles.rightSide}
+        style={{ 
+          width: size === 'mobile' || size === 'smallMobile' ? '100%' : authConfig.rightSideWidth 
+        }}
+      >
         <div className={styles.formWrapper}>
           <div className={styles.formHeader}>
             <h2 className={styles.title}>Sign In</h2>

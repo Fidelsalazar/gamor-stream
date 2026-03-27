@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "./LayoutCard.module.css";
 import { playersData } from "../../../assets/data/players";
 import { SvgAvatar } from "../SvgAvatar";
+import { useResponsive, EllipseConfig, TitleConfig, ButtonConfig, LayoutCardConfig } from "../../../hooks/useResponsive";
 // Import icons components
 import { TuneIcon } from "../../../assets/icons/TuneIcon";
 import { AddIcon } from "../../../assets/icons/AddIcon";
@@ -30,6 +31,12 @@ interface LayoutCardProps {
 }
 
 export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
+  const { size } = useResponsive();
+  const ellipseCfg = EllipseConfig[size];
+  const titleCfg = TitleConfig[size];
+  const buttonCfg = ButtonConfig[size];
+  const layoutCfg = LayoutCardConfig[size];
+
   const [searchTerm] = useState<string>("");
   const [selectedPlatform, setSelectedPlatform] = useState<string>("party");
   const [centerGames, setCenterGames] = useState<any[]>([]);
@@ -89,10 +96,26 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
   };
 
   return (
-    <div className={styles.layoutCard}>
-      <div className={styles.colLeft}>
+    <div 
+      className={styles.layoutCard}
+      style={{ flexDirection: layoutCfg.flexDirection }}
+    >
+      <div 
+        className={styles.colLeft} 
+        style={{ 
+          padding: titleCfg.padding,
+          minHeight: layoutCfg.colLeftMinHeight,
+          width: layoutCfg.colLeftWidth
+        }}
+      >
         <svg
           className={styles.scribbleSvg}
+          style={{
+            width: ellipseCfg.width,
+            height: ellipseCfg.height,
+            left: ellipseCfg.left,
+            top: ellipseCfg.top,
+          }}
           fill="none"
           stroke="currentColor"
           strokeWidth="1"
@@ -101,6 +124,9 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
         >
           <path
             className={styles.ellipse1}
+            style={{
+              transform: `rotate(-15deg) translate(${ellipseCfg.translateX}, ${ellipseCfg.translateY})`,
+            }}
             d="M 80 135 A 80 35 0 1 0 160 135"
             stroke="currentColor"
             strokeWidth="1"
@@ -110,6 +136,9 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
           />
           <path
             className={styles.ellipse2}
+            style={{
+              transform: `rotate(-15deg) translate(${ellipseCfg.translateX}, ${ellipseCfg.translateY})`,
+            }}
             d="M 80 135 A 80 35 0 1 0 160 135"
             stroke="currentColor"
             strokeWidth="1"
@@ -119,6 +148,9 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
           />
           <path
             className={styles.ellipse3}
+            style={{
+              transform: `rotate(-15deg) translate(${ellipseCfg.translateX}, ${ellipseCfg.translateY})`,
+            }}
             d="M 80 135 A 80 35 0 1 0 160 135"
             stroke="currentColor"
             strokeWidth="1"
@@ -128,14 +160,14 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
           />
         </svg>
 
-        <h1 className={styles.titleMain}>
+        <h1 className={styles.titleMain} style={{ fontSize: titleCfg.fontSize }}>
           start <br />
           <span className={styles.titleAccent}>streaming</span> <br />
           games <br />
           differently
         </h1>
 
-        <div className={styles.subtitleBox}>
+        <div className={styles.subtitleBox} style={{ fontSize: titleCfg.subtitleFontSize }}>
           <p>
             gamor now has{" "}
             <span className={styles.subtitleHighlight}>stream party</span>{" "}
@@ -144,25 +176,52 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
         </div>
 
         <div className={styles.actionArea}>
-          <button className={styles.btnPrimary}>
+          <button
+            className={styles.btnPrimary}
+            style={{
+              padding: buttonCfg.padding,
+              fontSize: buttonCfg.fontSize,
+              width: buttonCfg.width,
+            }}
+          >
             Create account
           </button>
-          <Link to="/login" className={styles.linkSignin}>
+          <Link to="/login" className={styles.linkSignin} style={{ fontSize: titleCfg.subtitleFontSize }}>
             Sign in
           </Link>
         </div>
       </div>
 
-      <div className={styles.colMid}>
+      <div 
+        className={styles.colMid}
+        style={{
+          minHeight: layoutCfg.colMidMinHeight,
+          width: layoutCfg.colMidWidth
+        }}
+      >
         <div className={styles.heroGradient}></div>
         <div className={styles.heroHeader}>
-          <h2 className={styles.heroTitle}>{currentPlayer}</h2>
+          <h2 
+            className={styles.heroTitle}
+            style={{ fontSize: layoutCfg.heroTitleSize }}
+          >
+            {currentPlayer}
+          </h2>
           <p className={styles.heroSubtitle}>Join Live Stream</p>
-          <div className={styles.badgeWrapper}>
+          <div 
+            className={styles.badgeWrapper}
+            style={{ padding: layoutCfg.badgePadding }}
+          >
             <div className={styles.addAvatar}>
               <AddAvatarIcon />
             </div>
-            <div className={styles.countdownBadge}>
+            <div 
+              className={styles.countdownBadge}
+              style={{ 
+                fontSize: layoutCfg.countdownFontSize,
+                padding: layoutCfg.countdownPadding
+              }}
+            >
               {new Date().getHours()} :{" "}
               {new Date().getMinutes().toString().padStart(2, "0")}
             </div>
@@ -210,6 +269,7 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
               <img
                 alt="Fortnite Character"
                 className={styles.heroImage}
+                style={{ height: layoutCfg.heroImageHeight }}
                 src={centralLigth}
               />
 
@@ -243,6 +303,7 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
               <img
                 alt="Dark Character"
                 className={styles.heroImage}
+                style={{ height: layoutCfg.heroImageHeight }}
                 src={centralDark}
               />
 
@@ -284,7 +345,15 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
         </svg>
       </div>
 
-      <div className={styles.colRight}>
+      <div 
+        className={styles.colRight}
+        style={{
+          minHeight: layoutCfg.colRightMinHeight,
+          width: layoutCfg.colRightWidth,
+          justifyContent: layoutCfg.colRightJustifyContent,
+          padding: layoutCfg.colRightPadding
+        }}
+      >
         <div className={styles.colRightContent}>
           <div className={styles.sectionFirstContainer}>
             <div className={styles.sectionHeader}>

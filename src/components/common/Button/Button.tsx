@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Button.module.css';
 import type { ButtonProps } from '../../../types/form';
+import { useResponsive, ButtonSizeConfig } from '../../../hooks/useResponsive';
 
 export const Button: React.FC<ButtonProps> = ({
   children,
@@ -11,6 +12,11 @@ export const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
+  const { size: viewportSize } = useResponsive();
+  const sizeConfig = ButtonSizeConfig[viewportSize];
+  const currentSizeConfig = sizeConfig[size] || sizeConfig.medium;
+  const defaultConfig = sizeConfig.default;
+
   return (
     <button
       {...props}
@@ -22,6 +28,11 @@ export const Button: React.FC<ButtonProps> = ({
         ${loading ? styles.loading : ''}
         ${className}
       `}
+      style={{
+        padding: currentSizeConfig.padding,
+        fontSize: currentSizeConfig.fontSize,
+        minHeight: currentSizeConfig.minHeight,
+      }}
       disabled={props.disabled || loading}
     >
       {loading && (

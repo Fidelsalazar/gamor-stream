@@ -1,6 +1,7 @@
 import React, { cloneElement,useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
+import { useResponsive, MainLayoutConfig } from "../../../hooks/useResponsive";
 import styles from "./MainLayout.module.css";
 import { SvgAvatar } from "../../common/SvgAvatar";
 
@@ -11,6 +12,8 @@ interface MainLayoutProps {
 export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const { user, logout, isAuthenticated } = useAuth();
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const { size } = useResponsive();
+  const config = MainLayoutConfig[size];
 
   useEffect(() => {
     const savedTheme =
@@ -32,8 +35,19 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <div className={styles.mainLayout}>
-      <header className={styles.header}>
-        <nav className={styles.navbar}>
+      <header 
+        className={styles.header}
+        style={{ padding: config.headerPadding }}
+      >
+        <nav 
+          className={styles.navbar}
+          style={{ 
+            flexDirection: config.navbarDirection,
+            gap: config.navbarGap,
+            paddingLeft: config.navbarPaddingLeft,
+            width: config.navbarWidth
+          }}
+        >
           <div className={styles.navLeft}>
             <Link to="/" className={styles.homeLink}>
               Home
@@ -61,7 +75,11 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
               Premium
             </Link>
           </div>
-          <Link to="/" className={styles.logo}>
+          <Link 
+            to="/" 
+            className={styles.logo}
+            style={{ fontSize: config.logoFontSize }}
+          >
             Gamor
           </Link>
           <div className={styles.navLinks}>
@@ -73,13 +91,27 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
                   size={30}
                   className={styles.avatarSm}
                 />
-                <button onClick={handleLogout} className={styles.logoutBtn}>
+                <button 
+                  onClick={handleLogout} 
+                  className={styles.logoutBtn}
+                  style={{ 
+                    padding: config.navLinkPadding,
+                    fontSize: config.navLinkFontSize
+                  }}
+                >
                   Cerrar sesión
                 </button>
               </>
             ) : (
               <>
-                <Link to="/login" className={styles.navLink}>
+                <Link 
+                  to="/login" 
+                  className={styles.navLink}
+                  style={{ 
+                    padding: config.navLinkPadding,
+                    fontSize: config.navLinkFontSize
+                  }}
+                >
                   Sign in
                 </Link>
                 <Link to="/register" className={styles.navCreateLink}>
@@ -129,7 +161,10 @@ export const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
           </button>
         </nav>
       </header>
-      <main className={styles.mainContent}>
+      <main 
+        className={styles.mainContent}
+        style={{ padding: config.mainPadding }}
+      >
         {React.Children.map(children, (child) => {
           if (React.isValidElement(child)) {
             return cloneElement(child, { theme } as any);

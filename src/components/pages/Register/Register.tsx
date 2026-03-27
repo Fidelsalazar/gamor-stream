@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
+import { useResponsive, AuthPageConfig } from "../../../hooks/useResponsive";
 import styles from "./Register.module.css";
 import type { RegisterData } from "../../../types/auth";
 
@@ -17,6 +18,8 @@ export const Register: React.FC = () => {
 
   const navigate = useNavigate();
   const { register } = useAuth();
+  const { size } = useResponsive();
+  const authConfig = AuthPageConfig[size];
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -93,9 +96,21 @@ export const Register: React.FC = () => {
   };
 
   return (
-    <div className={styles.registerContainer}>
+    <div 
+      className={styles.registerContainer}
+      style={{ 
+        flexDirection: authConfig.flexDirection,
+        height: authConfig.containerHeight
+      }}
+    >
       
-      <div className={styles.leftSide}>
+      <div 
+        className={styles.leftSide}
+        style={{ 
+          width: authConfig.leftSideWidth,
+          padding: authConfig.leftSidePadding
+        }}
+      >
         <div className={styles.logoContainer}>
           <h1 className={styles.logoText}>GAMOR</h1>
         </div>
@@ -214,7 +229,13 @@ export const Register: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className={styles.rightSide}>
+      <div 
+        className={styles.rightSide}
+        style={{ 
+          height: authConfig.rightSideHeight,
+          width: authConfig.rightSideWidth
+        }}
+      >
         <img
           src="https://imgs.search.brave.com/_9oW3LyOG8lO-KgtVknAjB4oiHb4mhbkdvcbsMPTJC4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/d2FsbHBhcGVyc2Fm/YXJpLmNvbS85OS8x/My80RDF5WVA4Lndl/YnA"
           alt="Gaming Background"
