@@ -36,13 +36,11 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
   const [currentPlayer, setCurrentPlayer] = useState<string>(
     "Fortnite New Season",
   );
-  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
 
   useEffect(() => {
     // Reset when theme changes
     setImagesLoaded(false);
-    setIsLoading(true);
     
     // Load only images for current theme
     const isLight = theme === "light";
@@ -75,16 +73,6 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
       img.src = src;
     });
   }, [theme]);
-
-  useEffect(() => {
-    if (!imagesLoaded) return;
-    
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 300);
-    
-    return () => clearTimeout(timer);
-  }, [imagesLoaded]);
 
   const currentPlayers =
     playersData[selectedPlatform as keyof typeof playersData] || [];
