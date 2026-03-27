@@ -37,49 +37,54 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
     "Fortnite New Season",
   );
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [imagesLoaded, setImagesLoaded] = useState<boolean>(false);
 
   useEffect(() => {
-    const minimumLoadingTime = 3000;
-    new Promise<void>((resolve) => {
-      const imageSources = [
-        centralDark,
-        avatarDark1,
-        avatarDark2,
-        centralLigth,
-        avatarLigth1,
-        avatarLigth2,
-      ];
+    // Reset when theme changes
+    setImagesLoaded(false);
+    setIsLoading(true);
+    
+    // Load only images for current theme
+    const isLight = theme === "light";
+    const imageSources = isLight 
+      ? [centralLigth, avatarLigth1, avatarLigth2]
+      : [centralDark, avatarDark1, avatarDark2];
 
-      let loadedCount = 0;
-      if (imageSources.length === 0) {
-        resolve();
-        return;
-      }
+    let loadedCount = 0;
+    const totalImages = imageSources.length;
 
-      imageSources.forEach((src) => {
-        const img = new Image();
-        img.onload = () => {
-          loadedCount++;
-          if (loadedCount === imageSources.length) {
-            resolve();
-          }
-        };
-        img.onerror = () => {
-          loadedCount++;
-          if (loadedCount === imageSources.length) {
-            resolve();
-          }
-        };
-        img.src = src;
-      });
+    if (totalImages === 0) {
+      setImagesLoaded(true);
+      return;
+    }
+
+    imageSources.forEach((src) => {
+      const img = new Image();
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.onerror = () => {
+        loadedCount++;
+        if (loadedCount === totalImages) {
+          setImagesLoaded(true);
+        }
+      };
+      img.src = src;
     });
+  }, [theme]);
 
-    Promise.resolve().then(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-      }, minimumLoadingTime);
-    });
-  }, []);
+  useEffect(() => {
+    if (!imagesLoaded) return;
+    
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, [imagesLoaded]);
 
   const currentPlayers =
     playersData[selectedPlatform as keyof typeof playersData] || [];
@@ -97,7 +102,6 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
 
   return (
     <div className={styles.layoutCard}>
-      {/* Left Column */}
       <div className={styles.colLeft}>
         <svg
           className={styles.scribbleSvg}
@@ -161,7 +165,6 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
         </div>
       </div>
 
-      {/* Middle Column - Hero */}
       <div className={styles.colMid}>
         <div className={styles.heroGradient}></div>
         <div className={styles.heroHeader}>
@@ -179,7 +182,7 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
         </div>
 
         <div className={styles.heroImageContainer}>
-          {isLoading ? (
+          {!imagesLoaded ? (
             <>
               <div className={styles.skeletonHeroImage}>
                 <div className={styles.skeletonHeroImageInner}>
@@ -293,7 +296,6 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
         </svg>
       </div>
 
-      {/* Right Column */}
       <div className={styles.colRight}>
         <div className={styles.colRightContent}>
           <div className={styles.sectionFirstContainer}>

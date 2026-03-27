@@ -101,7 +101,6 @@
   border: 1px solid transparent;
 }
 
-/* Background image layer - shows on hover using CSS variable */
 .categoryCard::before {
   content: '';
   position: absolute;
@@ -115,7 +114,6 @@
   transition: opacity 0.3s ease;
 }
 
-/* Color overlay for hover effect - solid color without gradient */
 .colorHover {
   position: absolute;
   inset: 0;
@@ -126,17 +124,14 @@
   border-radius: 1rem;
 }
 
-/* Light theme hover color */
 .lightTheme .categoryCard:hover .colorHover {
   background-color: rgba(180, 68, 254, 0.6);
 }
 
-/* Dark theme hover color */
 .categoryCard:hover .colorHover {
   background-color: rgba(254, 136, 68, 0.6);
 }
 
-/* Remove gradient overlay - image shows directly */
 .categoryCard::after {
   display: none;
 }
@@ -161,7 +156,6 @@
   transform: translateY(-4px) scale(1.01);
 }
 
-/* Category Content - z-index 100 to stay above the image */
 .categoryContent {
   position: relative;
   z-index: 100;
@@ -230,7 +224,6 @@
   }
 }
 
-/* Card Inner */
 .cardInner {
   display: flex;
   flex-direction: column;
@@ -241,14 +234,12 @@
   gap: 1rem;
 }
 
-/* Category Name */
 .categoryName {
   font-size: 1rem;
   font-weight: 700;
   color: var(--text-primary);
 }
 
-/* Light Theme */
 .lightTheme .titleAccent {
   color: var(--primary);
 }
@@ -256,6 +247,12 @@
 .lightTheme .categoryCard {
   background: rgba(255, 255, 255, 0.8);
   border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Theme - Cards con fondo gris */
+.categoryCard {
+  background: var(--surface-bg);
+  border: 1px solid var(--border-color);
 }
 
 .lightTheme .categoryName {
