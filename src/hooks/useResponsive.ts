@@ -375,6 +375,20 @@ export const LayoutCardConfig: Record<ViewportSize, {
   badgePadding: string;
   countdownFontSize: string;
   countdownPadding: string;
+  tabFontSize: string;
+  tabPadding: string;
+  addAvatarSize: string;
+  addAvatarLeft: string;
+  actionAreaMarginLeft: string;
+  skeletonAvatarWidth: string;
+  skeletonAvatarHeight: string;
+  floatingAvatarWidth: string;
+  floatingAvatarHeight: string;
+  viewerBadgeSize: string;
+  viewerBadgeRight: string;
+  viewerBadgeTop: string;
+  skeletonAvatarTop: string;
+  skeletonAvatarRight: string;
 }> = {
   desktop: {
     flexDirection: 'row',
@@ -391,6 +405,20 @@ export const LayoutCardConfig: Record<ViewportSize, {
     badgePadding: '1.5rem 2.5rem 1.5rem 4rem',
     countdownFontSize: '1.5rem',
     countdownPadding: '1rem 2rem',
+    tabFontSize: '1rem',
+    tabPadding: '0.5rem 1rem',
+    addAvatarSize: '4rem',
+    addAvatarLeft: '1rem',
+    actionAreaMarginLeft: '0',
+    skeletonAvatarWidth: '6rem',
+    skeletonAvatarHeight: '6rem',
+    floatingAvatarWidth: '6rem',
+    floatingAvatarHeight: '6rem',
+    viewerBadgeSize: '2rem',
+    viewerBadgeRight: '4.5rem',
+    viewerBadgeTop: '0.5rem',
+    skeletonAvatarTop: '10%',
+    skeletonAvatarRight: '3rem',
   },
   tablet: {
     flexDirection: 'column',
@@ -407,6 +435,20 @@ export const LayoutCardConfig: Record<ViewportSize, {
     badgePadding: '1rem 1.5rem 1rem 2.5rem',
     countdownFontSize: '1.1rem',
     countdownPadding: '0.75rem 1.25rem',
+    tabFontSize: '0.875rem',
+    tabPadding: '0.4rem 0.8rem',
+    addAvatarSize: '4rem',
+    addAvatarLeft: '1rem',
+    actionAreaMarginLeft: '0',
+    skeletonAvatarWidth: '4rem',
+    skeletonAvatarHeight: '4rem',
+    floatingAvatarWidth: '4rem',
+    floatingAvatarHeight: '4rem',
+    viewerBadgeSize: '1.5rem',
+    viewerBadgeRight: '3rem',
+    viewerBadgeTop: '0.3rem',
+    skeletonAvatarTop: '55%',
+    skeletonAvatarRight: '2.5rem',
   },
   mobile: {
     flexDirection: 'column',
@@ -421,8 +463,22 @@ export const LayoutCardConfig: Record<ViewportSize, {
     heroImageHeight: '180px',
     heroTitleSize: '1.5rem',
     badgePadding: '1rem 1.5rem 1rem 3rem',
-    countdownFontSize: '1.2rem',
+    countdownFontSize: '1.2rem',                                 
     countdownPadding: '0.75rem 1.5rem',
+    tabFontSize: '0.75rem',
+    tabPadding: '0.35rem 0.6rem',
+    addAvatarSize: '2.5rem',
+    addAvatarLeft: '1.1rem',
+    actionAreaMarginLeft: '1rem',
+    skeletonAvatarWidth: '3rem',
+    skeletonAvatarHeight: '3rem',
+    floatingAvatarWidth: '4rem',
+    floatingAvatarHeight: '4rem',
+    viewerBadgeSize: '1.2rem',
+    viewerBadgeRight: '2.5rem',
+    viewerBadgeTop: '0.25rem',
+    skeletonAvatarTop: '55%',
+    skeletonAvatarRight: '4rem',
   },
   smallMobile: {
     flexDirection: 'column',
@@ -439,6 +495,20 @@ export const LayoutCardConfig: Record<ViewportSize, {
     badgePadding: '0.75rem 1rem 0.75rem 2.5rem',
     countdownFontSize: '1rem',
     countdownPadding: '0.5rem 1rem',
+    tabFontSize: '0.7rem',
+    tabPadding: '0.3rem 0.5rem',
+    addAvatarSize: '2rem',
+    addAvatarLeft: '1rem',
+    actionAreaMarginLeft: '2.4rem',
+    skeletonAvatarWidth: '2rem',
+    skeletonAvatarHeight: '2rem',
+    floatingAvatarWidth: '3rem',
+    floatingAvatarHeight: '3rem',
+    viewerBadgeSize: '1rem',
+    viewerBadgeRight: '2rem',
+    viewerBadgeTop: '0.2rem',
+    skeletonAvatarTop: '55%',
+    skeletonAvatarRight: '2.5rem',
   },
 };
 
@@ -449,6 +519,7 @@ export const AuthPageConfig: Record<ViewportSize, {
   rightSideWidth: string;
   leftSideWidth: string;
   leftSidePadding: string;
+  addAvatarSize: string;
 }> = {
   desktop: {
     flexDirection: 'row',
@@ -457,6 +528,7 @@ export const AuthPageConfig: Record<ViewportSize, {
     rightSideWidth: '50%',
     leftSideWidth: '50%',
     leftSidePadding: '4rem 3rem',
+    addAvatarSize: '8rem',
   },
   tablet: {
     flexDirection: 'row',
@@ -465,6 +537,7 @@ export const AuthPageConfig: Record<ViewportSize, {
     rightSideWidth: '45%',
     leftSideWidth: '55%',
     leftSidePadding: '3rem 2.5rem',
+    addAvatarSize: '6rem',
   },
   mobile: {
     flexDirection: 'column',
@@ -473,6 +546,7 @@ export const AuthPageConfig: Record<ViewportSize, {
     rightSideWidth: '100%',
     leftSideWidth: '100%',
     leftSidePadding: '2rem 1.5rem',
+    addAvatarSize: '4rem',
   },
   smallMobile: {
     flexDirection: 'column',
@@ -481,5 +555,6 @@ export const AuthPageConfig: Record<ViewportSize, {
     rightSideWidth: '100%',
     leftSideWidth: '100%',
     leftSidePadding: '1.5rem 1rem',
+    addAvatarSize: '3.5rem',
   },
 };

@@ -175,7 +175,7 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
           </p>
         </div>
 
-        <div className={styles.actionArea}>
+        <div className={styles.actionArea} style={{ marginLeft: layoutCfg.actionAreaMarginLeft }}>
           <button
             className={styles.btnPrimary}
             style={{
@@ -212,7 +212,16 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
             className={styles.badgeWrapper}
             style={{ padding: layoutCfg.badgePadding }}
           >
-            <div className={styles.addAvatar}>
+            <div 
+              className={styles.addAvatar}
+              style={{ 
+                width: layoutCfg.addAvatarSize, 
+                height: layoutCfg.addAvatarSize,
+                minWidth: layoutCfg.addAvatarSize,
+                minHeight: layoutCfg.addAvatarSize,
+                left: layoutCfg.addAvatarLeft
+              }}
+            >
               <AddAvatarIcon />
             </div>
             <div 
@@ -242,6 +251,14 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
               </div>
               <div
                 className={`${styles.skeletonFloatingAvatar} ${styles.skeletonAvatar1}`}
+                style={{ 
+                  width: layoutCfg.skeletonAvatarWidth, 
+                  height: layoutCfg.skeletonAvatarHeight,
+                  minWidth: layoutCfg.skeletonAvatarWidth,
+                  minHeight: layoutCfg.skeletonAvatarHeight,
+                  top: layoutCfg.skeletonAvatarTop,
+                  right: layoutCfg.skeletonAvatarRight
+                }}
               >
                 <div className={styles.skeletonImg}>
                   {theme === "light" ? (
@@ -254,6 +271,14 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
 
               <div
                 className={`${styles.skeletonFloatingAvatar} ${styles.skeletonAvatar2}`}
+                style={{ 
+                  width: layoutCfg.skeletonAvatarWidth, 
+                  height: layoutCfg.skeletonAvatarHeight,
+                  minWidth: layoutCfg.skeletonAvatarWidth,
+                  minHeight: layoutCfg.skeletonAvatarHeight,
+                  top: layoutCfg.skeletonAvatarTop,
+                  right: layoutCfg.skeletonAvatarRight
+                }}
               >
                 <div className={styles.skeletonImg}>
                   {theme === "light" ? (
@@ -276,13 +301,25 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
               <div
                 className={`${styles.floatingAvatar} ${styles.avatar1} ${styles.lightOnly} ${styles.slideUp}`}
                 key="avatar1-light"
+                style={{ 
+                  width: layoutCfg.floatingAvatarWidth, 
+                  height: layoutCfg.floatingAvatarHeight 
+                }}
               >
                 <img
                   className={styles.floatingImg}
                   src={avatarLigth1}
                   alt="User"
                 />
-                <div className={styles.viewerBadge}>
+                <div 
+                  className={styles.viewerBadge}
+                  style={{
+                    width: layoutCfg.viewerBadgeSize,
+                    height: layoutCfg.viewerBadgeSize,
+                    right: layoutCfg.viewerBadgeRight,
+                    top: layoutCfg.viewerBadgeTop
+                  }}
+                >
                   <VisibilityIcon />
                 </div>
               </div>
@@ -290,6 +327,10 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
               <div
                 className={`${styles.floatingAvatar} ${styles.avatar2} ${styles.lightOnly} ${styles.slideDown}`}
                 key="avatar2-light"
+                style={{ 
+                  width: layoutCfg.floatingAvatarWidth, 
+                  height: layoutCfg.floatingAvatarHeight 
+                }}
               >
                 <img
                   className={styles.floatingImg}
@@ -310,6 +351,10 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
               <div
                 className={`${styles.floatingAvatar} ${styles.avatar1} ${styles.darkOnly} ${styles.slideDown}`}
                 key="avatar1-dark"
+                style={{ 
+                  width: layoutCfg.floatingAvatarWidth, 
+                  height: layoutCfg.floatingAvatarHeight 
+                }}
               >
                 <img
                   className={styles.floatingImg}
@@ -321,13 +366,25 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
               <div
                 className={`${styles.floatingAvatar} ${styles.avatar2} ${styles.darkOnly} ${styles.slideUp}`}
                 key="avatar2-dark"
+                style={{ 
+                  width: layoutCfg.floatingAvatarWidth, 
+                  height: layoutCfg.floatingAvatarHeight 
+                }}
               >
                 <img
                   className={styles.floatingImg}
                   src={avatarDark2}
                   alt="Dark User"
                 />
-                <div className={styles.viewerBadge}>
+                <div 
+                  className={styles.viewerBadge}
+                  style={{
+                    width: layoutCfg.viewerBadgeSize,
+                    height: layoutCfg.viewerBadgeSize,
+                    right: layoutCfg.viewerBadgeRight,
+                    top: layoutCfg.viewerBadgeTop
+                  }}
+                >
                   <HeartIcon />
                 </div>
               </div>
@@ -366,6 +423,7 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
                   selectedPlatform === "party" ? styles.active : ""
                 }`}
                 onClick={() => setSelectedPlatform("party")}
+                style={{ fontSize: layoutCfg.tabFontSize, padding: layoutCfg.tabPadding }}
               >
                 <PartyIcon />
                 Party
@@ -375,6 +433,7 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
                   selectedPlatform === "matches" ? styles.active : ""
                 }`}
                 onClick={() => setSelectedPlatform("matches")}
+                style={{ fontSize: layoutCfg.tabFontSize, padding: layoutCfg.tabPadding }}
               >
                 Matchs
               </button>
@@ -383,6 +442,7 @@ export const LayoutCard: React.FC<LayoutCardProps> = ({ theme = "dark" }) => {
                   selectedPlatform === "streams" ? styles.active : ""
                 }`}
                 onClick={() => setSelectedPlatform("streams")}
+                style={{ fontSize: layoutCfg.tabFontSize, padding: layoutCfg.tabPadding }}
               >
                 Streams
               </button>
