@@ -15,7 +15,6 @@ export const Button: React.FC<ButtonProps> = ({
   const { size: viewportSize } = useResponsive();
   const sizeConfig = ButtonSizeConfig[viewportSize];
   const currentSizeConfig = sizeConfig[size] || sizeConfig.medium;
-  const defaultConfig = sizeConfig.default;
 
   return (
     <button
